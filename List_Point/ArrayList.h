@@ -1,13 +1,13 @@
 #pragma once
-#include <iostream>
+
 #include <array>
-using std::cout;
-using std::endl;
+#include "Point.h"
+
 using std::array;
 
-typedef int LData;
+typedef Point LData;
 
-template <typename Ty, int len=100>
+template <typename Ty, int len = 100>
 class ArrayList
 {
 private:
