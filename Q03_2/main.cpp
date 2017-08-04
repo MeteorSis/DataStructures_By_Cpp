@@ -58,11 +58,11 @@ int main(void)
 	if (list.LFirst(&ppos))
 	{
 		if (ppos->nameCmp("손기문") == 0)
-			list.LRemove();
+			delete list.LRemove();
 
 		while (list.LNext(&ppos))
 			if (ppos->nameCmp("손기문") == 0)
-				list.LRemove();
+				delete list.LRemove();
 	}
 
 	cout << "현재 데이터의 수 : " << list.LCount() << endl;

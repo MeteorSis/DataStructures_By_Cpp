@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "List_Point", "List_Point\Li
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Q03_2", "Q03_2\Q03_2.vcxproj", "{49E8A218-56DC-4E97-9938-687FD1C1DE62}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ch04", "Ch04", "{B85EE4F6-C90D-440C-B689-9DD27B7FBDFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
