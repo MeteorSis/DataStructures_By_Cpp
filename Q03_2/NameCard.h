@@ -11,7 +11,7 @@ private:
 	string name;
 	string phone;
 public:
-	NameCard(const string& name, const string& phone);
+	NameCard(const string& name = "", const string& phone = "");
 	void showNameCardInfo() const;
 	int nameCmp(const string& name) const;
 	void changePhoneNum(const string& phone);
