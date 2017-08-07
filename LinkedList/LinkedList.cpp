@@ -1,7 +1,7 @@
 #include "LinkedList.h"
 
 LinkedList::LinkedList()
-	:numOfNodes(0) 
+	:numOfNodes(0), cmp(nullptr)
 {
 	head = new Node(-1, nullptr);
 	curNode = head;
@@ -14,15 +14,16 @@ void LinkedList::listInit()
 	numOfNodes = 0;
 	head = new Node(-1, nullptr);
 	curNode = head;
+	cmp = nullptr;
 }
 
 bool LinkedList::lInsert(const LData& data)
 {
-	if (data == nullptr)
+	Node * insertNode = new Node(data, head->next);
+	if (insertNode == nullptr)
 		return false;
 
-	data->next = head->next;
-	head->next = data;
+	head->next = insertNode;
 
 	++numOfNodes;
 	return true;		
@@ -35,7 +36,7 @@ bool LinkedList::lFirst(LData* const pData)
 
 	prevNode = head;
 	curNode = head->next;
-	*pData = curNode;
+	*pData = curNode->num;
 	return true;
 }
 
@@ -46,14 +47,15 @@ bool LinkedList::lNext(LData* const pData)
 	
 	prevNode = curNode;
 	curNode = curNode->next;
-	*pData = curNode;
+	*pData = curNode->num;
 	return true;
 }
 
 LData LinkedList::lRemove()
 {
-	LData rmData = curNode;
+	LData rmData = curNode->num;
 	prevNode->next = curNode->next;
+	delete curNode;
 	curNode = prevNode;
 	--numOfNodes;
 	return rmData;

@@ -1,14 +1,14 @@
 #pragma once
 #include "Node.h"
 
-typedef Node* LData;
+typedef int LData;
 
 class LinkedList
 {
 private:
-	LData head;
-	LData curNode;
-	LData prevNode;
+	Node* head;
+	Node* curNode;
+	Node* prevNode;
 	int numOfNodes;
 	int(*cmp)(const LData& d1, const LData& d2);
 public:

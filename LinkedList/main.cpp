@@ -8,7 +8,7 @@ using std::endl;
 int main(void)
 {
 	LinkedList linkedList;
-	Node* data;
+	LData data;
 	int readData;
 
 	while (1)
@@ -18,15 +18,15 @@ int main(void)
 		if (readData < 1)
 			break;
 
-		if (!linkedList.lInsert(new Node(readData, nullptr)))
+		if (!linkedList.lInsert(readData))
 			cout << "삽입 실패" << endl;
 	}
 	if (linkedList.lFirst(&data))
 	{
-		cout << endl << "입력받은 데이터의 전체 출력!" << endl << "DummyNode->" << data->num << "->";
+		cout << endl << "입력받은 데이터의 전체 출력!" << endl << "DummyNode->" << data << "->";
 
 		while (linkedList.lNext(&data))
-			cout << data->num << "->";
+			cout << data << "->";
 		cout << "nullptr" << endl;
 	}
 	else
@@ -34,12 +34,12 @@ int main(void)
 
 	if (linkedList.lFirst(&data))
 	{
-		//if (data->num % 2 == 1)
-			delete linkedList.lRemove();
+		if (data % 2 == 0)
+			linkedList.lRemove();
 
 		while (linkedList.lNext(&data))
-			//if (data->num % 2 == 1)
-				delete linkedList.lRemove();
+			if (data % 2 == 0)
+				linkedList.lRemove();
 		cout << "노드 삭제 완료" << endl;
 	}
 	else
@@ -47,10 +47,10 @@ int main(void)
 
 	if (linkedList.lFirst(&data))
 	{
-		cout << endl << "입력받은 데이터의 전체 출력!" << endl << "DummyNode->" << data->num << "->";
+		cout << endl << "입력받은 데이터의 전체 출력!" << endl << "DummyNode->" << data << "->";
 
 		while (linkedList.lNext(&data))
-			cout << data->num << "->";
+			cout << data << "->";
 		cout << "nullptr" << endl;
 	}
 	else
