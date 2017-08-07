@@ -7,6 +7,7 @@ class LinkedList
 {
 private:
 	LData head;
+	LData tail;
 	LData curNode;
 	LData prevNode;
 	int numOfNodes;

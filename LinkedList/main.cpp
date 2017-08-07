@@ -34,11 +34,11 @@ int main(void)
 
 	if (linkedList.lFirst(&data))
 	{
-		if (data->num % 2 == 0)
+		//if (data->num % 2 == 1)
 			delete linkedList.lRemove();
 
 		while (linkedList.lNext(&data))
-			if (data->num % 2 == 0)
+			//if (data->num % 2 == 1)
 				delete linkedList.lRemove();
 		cout << "노드 삭제 완료" << endl;
 	}
