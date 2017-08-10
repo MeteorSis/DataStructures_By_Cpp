@@ -1,17 +1,20 @@
 #include "CLinkedList.h"
 
-CLinkedList::CLinkedList()
+template <typename T>
+CLinkedList<T>::CLinkedList()
 	: tail(nullptr), cur(nullptr), before(nullptr), numOfData(0) {}
 
-void CLinkedList::listInit()
+template <typename T>
+void CLinkedList<T>::listInit()
 {
 	tail = cur = before = nullptr;
 	numOfData = 0;
 }
 
-bool CLinkedList::lInsert(const Data &data)
+template <typename T>
+bool CLinkedList<T>::lInsert(const T &data)
 {
-	Node *newNode = new Node(data, nullptr);
+	Node<T> *newNode = new Node<T>(data, nullptr);
 	if (newNode == nullptr)
 		return false;
 
@@ -26,9 +29,10 @@ bool CLinkedList::lInsert(const Data &data)
 	++numOfData;
 }
 
-bool CLinkedList::lInsertFront(const Data &data)
+template <typename T>
+bool CLinkedList<T>::lInsertFront(const T &data)
 {
-	Node *newNode = new Node(data, nullptr);
+	Node<T> *newNode = new Node<T>(data, nullptr);
 	if (newNode == nullptr)
 		return false;
 
@@ -46,7 +50,8 @@ bool CLinkedList::lInsertFront(const Data &data)
 	return true;
 }
 
-bool CLinkedList::lFirst(Data * pData)
+template <typename T>
+bool CLinkedList<T>::lFirst(T * pData)
 {
 	if (tail == nullptr)
 		return false;
@@ -58,7 +63,8 @@ bool CLinkedList::lFirst(Data * pData)
 	return true;
 }
 
-bool CLinkedList::lNext(Data * pData)
+template <typename T>
+bool CLinkedList<T>::lNext(T * pData)
 {
 	if (tail == nullptr)
 		return false;
@@ -70,9 +76,10 @@ bool CLinkedList::lNext(Data * pData)
 	return true;
 }
 
-Data CLinkedList::lRemove()
+template <typename T>
+T CLinkedList<T>::lRemove()
 {
-	Data rmData = cur->data;
+	T rmData = cur->data;
 	if (cur->next == cur)
 	{
 		delete cur;
@@ -90,7 +97,8 @@ Data CLinkedList::lRemove()
 	return rmData;
 }
 
-int CLinkedList::lCount()
+template <typename T>
+int CLinkedList<T>::lCount()
 {
 	return numOfData;
 }
